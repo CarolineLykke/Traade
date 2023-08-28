@@ -6,7 +6,8 @@ public class Classroom
 {
 	public static void main(String[] args)
 	{
-		ISyncBuffer<Question> box = new SingleSynchronizedBuffer<>();
+		//ISyncBuffer<Question> box = new SingleSynchronizedBuffer<>();
+		ISyncBuffer<Question> box = new MultiSynchronizedBuffer<>();
 		ArrayList<Student> students = new ArrayList<>();
 		students.add(new Student("Alice", box));
 		students.add(new Student("Bob", box));
@@ -22,7 +23,7 @@ public class Classroom
 		{
 			new Thread(student).start();
 		}
-		Object lock = new Object();
+		//Object lock = new Object();
 		try
 		{
 			Thread.sleep(2000);
